@@ -1,3 +1,10 @@
+---
+layout: post
+title: 2.1 System of Linear equation
+author: inje.ryu
+categories: [math]
+tags: [linear equation, mml-book]
+---
 # 2.1 System of Linear Equation
 
 - 일상 생활속의 많은 문제들이 선형 방정식(linear equation)으로 정의되며, 선형대수학은 이것을 풀 수 있는 방법을 제시하는 학문임
