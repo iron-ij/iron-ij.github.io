@@ -1,8 +1,7 @@
 ---
-layout: post
 title: 2.1 System of Linear equation
-author: inje.ryu
-categories: [math]
+date: 2021-10-12 23:54:00 +0900
+categories: [Math]
 tags: [linear equation, mml-book]
 ---
 # 2.1 System of Linear Equation
