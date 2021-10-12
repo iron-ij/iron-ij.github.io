@@ -3,6 +3,7 @@ title: 2.1 System of Linear equation
 date: 2021-10-12 23:54:00 +0900
 categories: [Math]
 tags: [linear equation, mml-book]
+use_math: true
 ---
 # 2.1 System of Linear Equation
 
@@ -18,7 +19,9 @@ Ex1.
 
 - 해가 존재하지 않는 케이스
 
-$$x_1 + x_2 + x_3 = 3 \\ x_1 - x_2 + 2x_3 = 2 \\ 2x_1 + 3x_3 = 1$$
+$$x_1 + x_2 + x_3 = 3 \\ 
+x_1 - x_2 + 2x_3 = 2 \\ 
+2x_1 + 3x_3 = 1$$
 
 - 유일한 해가 존재
 
