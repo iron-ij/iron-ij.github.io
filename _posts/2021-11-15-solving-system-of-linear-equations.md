@@ -128,7 +128,7 @@ $$\{ x\in \mathbb{R} ^{5}:x=\lambda _{1}\begin{bmatrix} 3 \\ -1 \\ 0 \\ 0 \\ 0 \
 ### Inverse matrix
 
 - 정의로부터 $AX=I_{n}$ 이면, $X=A^{-1}$ 이고, 선형시스템의 형태를 변형해가면서 역행렬을 구할 수 있음
-- $[ A| I_n]$ ⇒ $[ I_n| A^{-1}]$
+- $[ A \vert I_{n}]$ ⇒ $[ I_{n} \vert A^{-1}]$
 
 
 ## 2.3.4 Algorithms for Solving a System of Linear Equations
