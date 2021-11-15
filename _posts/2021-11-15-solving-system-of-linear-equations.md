@@ -119,7 +119,7 @@ $$\{ x\in \mathbb{R} ^{5}:x=\lambda _{1}\begin{bmatrix} 3 \\ -1 \\ 0 \\ 0 \\ 0 \
 - $Ax=0$을 풀기위한 트릭을 소개하고자함
 - $A$를 reduced row-ehcelon form 이라 가정하면 다음과 같은 형태를 띔
     
-    <center><img src="https://drive.google.com/file/d/1SVaL6mH5rKgkf2yZ4uIIn39VE_VHTTKd/view?usp=sharing"></center> 
+    <center><img src="https://drive.google.com/uc?export=view&id=1SVaL6mH5rKgkf2yZ4uIIn39VE_VHTTKd"></center> 
     
 - * 는 실수이며, pivot 이 1인 열은 이외에는 모두 0을 만족한다(rref)
 - 이때 $pivot$ 아래에 $\left[ 0 \ldots 0 \ -1 \ 0\ldots 0\right]$ 을 추가하여 변형을 가해줌
