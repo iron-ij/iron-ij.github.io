@@ -20,7 +20,7 @@ x_{4} \end{bmatrix}=\begin{bmatrix} 42 \\
 8 \end{bmatrix}$$
 
 - 위의 식은 두개의 선형방정식과 4개의 미지수가 주어져 있음 ⇒ 이런 경우 일반적으로 무수히 많은 해가 존재
-- \(\sum^{4}_{i=1} x_{i}c_{i}=b\)를 만족하는 $x_i$의 형태를 찾아야 함
+- \(\sum^{4}\_{i=1} x_{i}c_{i}=b\)를 만족하는 $x_i$의 형태를 찾아야 함
 - 가장 먼저 가정해볼 수 있는 것은 첫번째와 두번째 컬럼의 조합으로 $b$를 만족하는 케이스이며, 다음과 같음
 
 $$b=\begin{bmatrix} 42 \\ 
@@ -58,7 +58,7 @@ $$\{ x\in \mathbb{R} ^{4}:x=\begin{bmatrix} 42 \\ 8 \\ 0 \\ 0 \end{bmatrix}+\lam
 기본적인 행렬변환을 통해 해를 도출할때는 다음과 같은 단순 과정의 반복으로 해결이 가능함
 
 - 두 행의 위치를 바꿈 (선형시스템의 형태로 표현된 row)
-- row에 \(\lambda \in \mathbb{R} \backslash \left \{0\right\}\)를 곱함
+- row에 $\lambda \in \mathbb{R} \backslash {0}$를 곱함
 - 두 행을 더함    
 
 ### Remark
@@ -119,7 +119,7 @@ $$\{ x\in \mathbb{R} ^{5}:x=\lambda _{1}\begin{bmatrix} 3 \\ -1 \\ 0 \\ 0 \\ 0 \
 - $Ax=0$을 풀기위한 트릭을 소개하고자함
 - $A$를 reduced row-ehcelon form 이라 가정하면 다음과 같은 형태를 띔
     
-    <center><img src="https://i.ibb.co/xfh3dG4/row-equal-form.png""></center> 
+    <center><img src="https://i.ibb.co/xfh3dG4/row-equal-form.png"></center> 
     
 - * 는 실수이며, pivot 이 1인 열은 이외에는 모두 0을 만족한다(rref)
 - 이때 $pivot$ 아래에 $\left[ 0 \ldots 0 \ -1 \ 0\ldots 0\right]$ 을 추가하여 변형을 가해줌
@@ -128,7 +128,7 @@ $$\{ x\in \mathbb{R} ^{5}:x=\lambda _{1}\begin{bmatrix} 3 \\ -1 \\ 0 \\ 0 \\ 0 \
 ### Inverse matrix
 
 - 정의로부터 $AX=I_{n}$ 이면, $X=A^{-1}$ 이고, 선형시스템의 형태를 변형해가면서 역행렬을 구할 수 있음
-- \(\left[ A| I_n\right]\) ⇒ \(\left[ I_n| A^{-1}\right]\)
+- $[ A| I\n\]$ ⇒ $[ I\n| A^{-1}]$
 
 
 ## 2.3.4 Algorithms for Solving a System of Linear Equations
