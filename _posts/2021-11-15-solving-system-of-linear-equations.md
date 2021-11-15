@@ -20,7 +20,7 @@ x_{4} \end{bmatrix}=\begin{bmatrix} 42 \\
 8 \end{bmatrix}$$
 
 - 위의 식은 두개의 선형방정식과 4개의 미지수가 주어져 있음 ⇒ 이런 경우 일반적으로 무수히 많은 해가 존재
-- \(\sum^{4}\_{i=1} x_{i}c_{i}=b\)를 만족하는 $x_i$의 형태를 찾아야 함
+- $\sum^{4} _{i=1} x _{i} c _{i} =b$를 만족하는 $x_i$의 형태를 찾아야 함
 - 가장 먼저 가정해볼 수 있는 것은 첫번째와 두번째 컬럼의 조합으로 $b$를 만족하는 케이스이며, 다음과 같음
 
 $$b=\begin{bmatrix} 42 \\ 
@@ -128,7 +128,7 @@ $$\{ x\in \mathbb{R} ^{5}:x=\lambda _{1}\begin{bmatrix} 3 \\ -1 \\ 0 \\ 0 \\ 0 \
 ### Inverse matrix
 
 - 정의로부터 $AX=I_{n}$ 이면, $X=A^{-1}$ 이고, 선형시스템의 형태를 변형해가면서 역행렬을 구할 수 있음
-- $[ A| I\n\]$ ⇒ $[ I\n| A^{-1}]$
+- $[ A| I_n]$ ⇒ $[ I_n| A^{-1}]$
 
 
 ## 2.3.4 Algorithms for Solving a System of Linear Equations
