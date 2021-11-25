@@ -5,7 +5,6 @@ categories: [Math]
 tags: [linear equation, mml-book]
 use_math: true
 ---
-# 2.4 Vector space
 
 - 이번장에서 알고 가야할 정의
     - Group (군)
