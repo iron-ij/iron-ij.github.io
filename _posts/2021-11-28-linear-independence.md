@@ -17,7 +17,7 @@ use_math: true
 
 $$v=\lambda_1x_1 + \cdot\cdot\cdot+\lambda_kx_k=\sum^k_{i=1}\lambda_ix_i \in V$$
 
-**Definition  2.12 (Linear (In)dependence)벡터 공간 $V$와 유한한 벡터 $x_1,...,x_k \in V$, $k \in \N$ 이 존재하면,**
+**Definition  2.12 (Linear (In)dependence)벡터 공간 $V$와 유한한 벡터 $x_1,...,x_k \in V$, $k \in N$ 이 존재하면,**
 
 1. $\lambda_i \ne 0$이 아닌 해가 존재하면 선형 종속(linear dependence)이라 정의함
 2. $\lambda_i = 0$ 만 해를 만족한다면 선형 독립(linear independence)이라 정의함
