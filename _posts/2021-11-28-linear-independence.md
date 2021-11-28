@@ -1,5 +1,5 @@
 ---
-title: 2.5 Linear Independence
+title: 2.5 Linear independence
 date: 2021-11-28 21:50:00 +0900
 categories: [Math]
 tags: [linear equation, mml-book]
