@@ -1,8 +1,8 @@
 ---
 title: Latent Semantic Analysis (LSA, 잠재의미 분석)
 date: 2021-12-05 21:57:00 +0900
-categories: [etc]
-tags: [etc]
+categories: [nlp]
+tags: [nlp, machine learning, math]
 use_math: true
 ---
 # 잠재 의미 분석(LSA, LSI)
