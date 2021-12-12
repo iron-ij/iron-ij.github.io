@@ -44,9 +44,9 @@ serverless create --template aws-python3 ## --path serverless-bert (경로를 �
 # serverless create --template aws-python3 --path [new_workdir_path]
 ```
 
-- 실행시
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/LScvZxD/Untitled.png" alt="Untitled" border="0"></a>
 
+- 실행시
 - `handler.py`
     - lambda 실행을 위한 boilerplate code가 들어있음
 - serverless.yml
