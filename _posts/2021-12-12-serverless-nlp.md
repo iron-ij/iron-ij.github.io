@@ -1,8 +1,8 @@
 ---
 title: AWS serverless로 nlp 모델 배포하기
 date: 2021-12-12 21:57:00 +0900
-categories: [etc]
-tags: [etc]
+categories: [nlp]
+tags: [nlp, aws, ml serving]
 use_math: true
 ---
 AWS 배포시에 다음과 같은 장단이 있다
@@ -10,7 +10,6 @@ AWS 배포시에 다음과 같은 장단이 있다
 
 - 문제 : Deeplearning 모델을 서빙하기에 적합하지 않다(cpu)
 - 30초안에 리턴이 반환되어야 한다.
-- 3개의 힌트를 받으면 15개의 문장을 생성 → 9개로 줄였다
 
 제품화 할때는 어떤 조합?
 - tensorflow.js
@@ -46,8 +45,7 @@ serverless create --template aws-python3 ## --path serverless-bert (경로를 �
 ```
 
 - 실행시
-
-![OKR-210707%20be5fc9746d634242a0cd798b36474510/Untitled.png](OKR-210707%20be5fc9746d634242a0cd798b36474510/Untitled.png)
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/LScvZxD/Untitled.png" alt="Untitled" border="0"></a>
 
 - `handler.py`
     - lambda 실행을 위한 boilerplate code가 들어있음
@@ -93,9 +91,7 @@ serverless create --template aws-python3 ## --path serverless-bert (경로를 �
                 answer = tokenizer.decode(gen_ids)
                 return answer
             predict_set = {
-                'main_titles': [predict(context_dict['main_title'], max_len=90, pen=i) for i in range(5)],
-                'sub_titles': [predict(context_dict['sub_title'], max_len=30, pen=i) for i in range(5)],
-                'descriptions': [predict(context_dict['description'], max_len=120, pen=i) for i in range(5)],
+                'gen_text': [predict(context_dict['main_title'], max_len=90, pen=i)]
             }
             return predict_set
         return gen_result
@@ -142,24 +138,24 @@ serverless create --template aws-python3 ## --path serverless-bert (경로를 �
     ```
     
 
-## 4. dockerbuild 및 테스트 (잘안됨)
+## 4. dockerbuild 및 테스트
 
 ```bash
 # docker build
-docker build -t gpt-lambda .
+docker build -t [docker-tag] .
 
 # docker run
-docker run -p 8080:8080 gpt-lambda
+docker run -p 8080:8080 [docker-tag]
 
 # check docker container using ssh
 docker exec -it [container_name] /bin/bash
 ```
 
 - [https://github.com/aws/aws-lambda-runtime-interface-emulator/](https://github.com/aws/aws-lambda-runtime-interface-emulator/)
-- aws 에서 에뮬레이터를 제공함
+- aws 에서 에뮬레이터를 제공함, 그러나 생각보다 안정적이지는 않아서 잘 쓰지는 않았음
 
-- lambda 형식에 맞는 gpt 코드를 작성
-- dockerfile 묶어요
+- lambda 형식에 맞는 모델 코드를 작성
+- 이후 dockerfile로 묶기
     - 인풋 → 추론 파이썬코드
     - 모델파일 (gpt2)
 - aws → dockerfile 올리기 (ECR)
@@ -168,11 +164,11 @@ docker exec -it [container_name] /bin/bash
 
 ```bash
 # 리포지토리 생성
-aws ecr create-repository --repository-name gpt-lambda > /dev/null
+aws ecr create-repository --repository-name [docker-tag] > /dev/null
 
 # aws region information
-aws_region=ap-northeast-2
-aws_account_id=179472982056
+aws_region=[AWS_REGION]
+aws_account_id=[AWS_ACCOUNT_ID]
 
 # aws ecr 로그인
 aws ecr get-login-password \
@@ -184,11 +180,11 @@ aws ecr get-login-password \
 # Login Succeeded
 
 # docker tag
-docker tag gpt-lambda $aws_account_id.dkr.ecr.$aws_region.amazonaws.com/gpt-lambda
+docker tag [docker-tag] $aws_account_id.dkr.ecr.$aws_region.amazonaws.com/[docker-tag]
 # docker push
-docker push $aws_account_id.dkr.ecr.$aws_region.amazonaws.com/gpt-lambda
+docker push $aws_account_id.dkr.ecr.$aws_region.amazonaws.com/[docker-tag]
 # or
-docker push $aws_account_id.dkr.ecr.$aws_region.amazonaws.com/gpt-lambda:version
+docker push $aws_account_id.dkr.ecr.$aws_region.amazonaws.com/[docker-tag]:version
 ```
 
 ## 6. serverless deploy
@@ -201,8 +197,6 @@ docker push $aws_account_id.dkr.ecr.$aws_region.amazonaws.com/gpt-lambda:version
 # work dir
 serverless deploy
 ```
-
-![OKR-210707%20be5fc9746d634242a0cd798b36474510/Untitled%201.png](OKR-210707%20be5fc9746d634242a0cd798b36474510/Untitled%201.png)
 
 - 서버리스 deploy를 사용하지 않는다면, 참고 [https://blog.algopie.com/aws/aws-lambda를-이용한-api-서비스-배포-12/](https://blog.algopie.com/aws/aws-lambda%eb%a5%bc-%ec%9d%b4%ec%9a%a9%ed%95%9c-api-%ec%84%9c%eb%b9%84%ec%8a%a4-%eb%b0%b0%ed%8f%ac-12/)
 - [http://labs.brandi.co.kr/2018/07/31/kwakjs.html](http://labs.brandi.co.kr/2018/07/31/kwakjs.html)
@@ -236,16 +230,12 @@ serverless deploy
 - API Gateway에서 `작업` → `CORS 활성화`
     - 후 꼭 `API를 새로 배포`해야 반영됨
 
-![OKR-210707%20be5fc9746d634242a0cd798b36474510/Untitled%202.png](OKR-210707%20be5fc9746d634242a0cd798b36474510/Untitled%202.png)
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/pRHJxX1/Untitled-2.png" alt="Untitled-2" border="0"></a>
 
 ### 8.3 responce time 이슈
 
 - api gateway 최대 대기시간은 30000ms (약 30초)
-- 따라서 응답이 30초안에 떨어져야함
-- 초기에 15개 문장생성에 소요되는 시간이 60초 가량이었음 (CPU ver)
-    
-    → 3개씩 생성(총 9개)로 타협
-    
+- 따라서 응답이 30초안에 떨어져야함    
 - 이래서 경량화가 필요한가 봄
 
 ### 8.4 (체크 필요) URL encoding issue
