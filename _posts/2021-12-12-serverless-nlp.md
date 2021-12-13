@@ -7,17 +7,8 @@ use_math: true
 ---
 AWS 배포시에 다음과 같은 장단이 있다
 속도(구현 속도) : AWS(lambda) - 싸다, 구현하기 쉽다(파이썬 스크립트를 짜고)
+그러나 아래 튜토리얼은 실제 서비스 환경과 거리가 있고 실제로는 훨씬 고려해야할 점이 많다. Aws로 이렇게 할 수 있구나! 정도만 참고하자 (아래 방식은 responce time도 긴 편이다ㅜㅜ)
 
-- 문제 : Deeplearning 모델을 서빙하기에 적합하지 않다(cpu)
-- 30초안에 리턴이 반환되어야 한다.
-
-제품화 할때는 어떤 조합?
-- tensorflow.js
-- **fastapi + pytorch(tensor) - 구현예정**
-- django(+orm) + pytorch(tensor)
-- flask + tensor(pytorch)
-- **flask + ml**
-- docker
 
 ## 1. serverless 설치
 
